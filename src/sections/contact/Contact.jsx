@@ -22,8 +22,18 @@ const Contact = () => {
   const formRef = useRef();
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
+  const isInView = useInView(ref, { margin: "-100px" });;
 
-  const isInView = useInView(ref, { margin: "-100px" });
+  const sendEmail = async(e) => {
+    e.preventDefault();
+
+    try{
+
+
+    } catch (e) {
+
+    }
+  }
 
   return (
     <motion.div ref={ref} variants={variants} className="contact" initial="initial" whileInView="animate">
@@ -67,12 +77,15 @@ const Contact = () => {
             />
           </svg>
         </motion.div>
-        <motion.form initial={{opacity:0}} whileInView={{opacity:1}} transition={{delay: 2.8, duration:1}}>
-          <input type="text" required placeholder="Name"/>
-          <input type="email" required placeholder="Email"/>
-          <textarea rows={8} placeholder="Message" />
+        <motion.form onSubmit={sendEmail} ref={formRef} initial={{opacity:0}} whileInView={{opacity:1}} transition={{delay: 2.8, duration:1}}>
+          <input type="text" required disabled placeholder="Name" name="name"/>
+          <input type="email" required disabled placeholder="Email" name="email"/>
+          <textarea rows={8} placeholder="Message" disabled name="description"/>
           <button>Send</button>
+          Disabled
         </motion.form>
+          {error ?? "Error"}
+          {success ?? "Success"}
       </motion.div>
     </motion.div>
   )
