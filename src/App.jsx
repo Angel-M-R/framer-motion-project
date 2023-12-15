@@ -5,7 +5,7 @@ import Hero from "./sections/hero/Hero";
 import Navbar from "./sections/navbar/Navbar";
 import Portfolio from "./sections/portfolio/Portfolio";
 import Services from "./sections/services/Services";
-import Parallax from "./sections/sidebar/parallax/Parallax";
+import Parallax from "./sections/parallax/Parallax";
 
 const App = () => {
   return <div>
